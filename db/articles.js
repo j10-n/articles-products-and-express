@@ -1,4 +1,4 @@
-class DS_MockArticles {
+class DS_Articles {
   constructor() {
     this.storage = [];
     this.idNum = 1;
@@ -13,12 +13,26 @@ class DS_MockArticles {
     });
   }
   getAllArticles() {
-    console.log("title");
     return this.storage.slice();
   }
   getArticleByTitle(title) {
     let result;
-    console.log("title", title);
+    this.storage.forEach(article => {
+      if (article.title === title) {
+        result = article;
+      }
+    });
+    console.log("result:", result);
+    return result;
+  }
+  createArticle(title, author, body, url) {
+    this.storage.push({
+      title,
+      author,
+      body,
+      url
+    });
+    this.idNum;
   }
 }
-module.exports = new DS_MockArticles();
+module.exports = new DS_Articles();
