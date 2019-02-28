@@ -22,6 +22,31 @@ router
       newArticle.url
     );
     res.send("new article created");
+  })
+  .put("/:title", (req, res) => {
+    console.log("successful = ", DS_Articles.successful);
+    // let newArticle = req.body;
+    let title = req.body.title;
+    let updatedTitle = req.body.updatedTitle;
+    console.log("newarticle", updatedTitle);
+    let author = req.body.author;
+    let body = req.body.body;
+    let url = req.body.url;
+    DS_Articles.editArticle(title, updatedTitle, author, body, url);
+
+    if (DS_Articles.successful === true) {
+      //   res.redirect("/articles/:title");
+      res.send("You have successfully changed " + updatedTitle);
+    } else {
+      //DS_Articles.successful === false;
+      res.send("Change has been unsuccessful");
+    }
+  })
+  .delete("/", (req, res) => {
+    let title = req.body.title;
+    console.log(title);
+    DS_Articles.deleteArticle(title);
+    res.send("Deleted " + title);
   });
 
 module.exports = router;
