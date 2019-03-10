@@ -1,6 +1,10 @@
 <h1>NEW NEWS</h1>
 <ul>
-  {{#each articleTitle}}
-  <li><a href="/articles/{{title}}">{{title}}</a></li>
+  {{#each articles_table}}
+  <li><a href="/articles/{{id}}">{{name}}</a></li>
   {{/each}}
 </ul>
+
+<form action="/articles/add" method="GET">
+  <button type="submit">Add Article</button>
+</form>

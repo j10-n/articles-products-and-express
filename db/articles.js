@@ -2,17 +2,17 @@ class DS_Articles {
   constructor() {
     this.storage = [];
     this.idNum = 1;
-    this.mockArticleTitles();
+    // this.mockArticleTitles();
     this.successful = false;
   }
-  mockArticleTitles() {
-    this.storage.push({
-      title: "HOLY COWS",
-      author: "Khau the Asian Cow",
-      body: "MOO MOO",
-      urlTitle: "Holy Cows"
-    });
-  }
+  // mockArticleTitles() {
+  //   this.storage.push({
+  //     title: "HOLY COWS",
+  //     author: "Khau the Asian Cow",
+  //     body: "MOO MOO",
+  //     url: "HOLY%20COWS"
+  //   });
+  // }
   getAllArticles() {
     return this.storage.slice();
   }
@@ -26,12 +26,11 @@ class DS_Articles {
     console.log("result:", result);
     return result;
   }
-  createArticle(title, author, body, url) {
+  createArticle(name, description, quantity) {
     this.storage.push({
-      title,
-      author,
-      body,
-      url
+      name,
+      description,
+      quantity
     });
     this.idNum;
   }
@@ -43,12 +42,9 @@ class DS_Articles {
         article.author = author;
         article.body = body;
         article.url = url;
-        console.log("djsaijdiasjdioajsijs");
         this.successful = true;
         return this.successful;
       } else {
-        console.log("djs213214213e12s");
-
         return this.successful;
       }
     });

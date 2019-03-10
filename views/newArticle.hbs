@@ -1,3 +1,7 @@
-<h1>{{ title }}</h1>
-<h2>By: {{ author }}</h2>
-<p>{{ body }}</p>
+<h1>name: {{ name }}</h1>
+<h2>descripts: {{ description }}</h2>
+<p>quants: {{ quantity }}</p>
+
+<form action="/articles/{{title}}/edit" method="GET">
+    <button type="submit">Edit Article</button>
+</form>
